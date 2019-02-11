@@ -1,0 +1,57 @@
+
+
+header {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border:1px solid red;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.search-nav {
+  border:1px solid red;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-box {
+  border:1px solid red;
+
+}
+
+img {
+  height: 20px;
+  width: 20px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.idea-card {
+  border: 1px solid gray;
+  width: 600px;
+  margin: auto;
+  padding: 4px;
+}
+
+.idea-card-bottom {
+  border-top: 1px solid gray;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+.idea-card-bottom div {
+  display: flex;
+  align-items: center;
+}
+
+.delete-button {
+
+}

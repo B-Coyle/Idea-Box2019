@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, 
+    user-scalable=no, initial-scale=1.0">
+  <title>IdeaBox Triples</title>
+</head>
+<body>
+    <header class="header"><h1>ideabox<span>triples</span></h1>
+      <nav class="search-nav">
+        <input type="search" class="search-box" id="search-box">
+        <div class="search-btn-container">
+          <i class="fas fa-search"></i>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="form-container">
+        <form>
+          <h4>Title</h4>
+          <input type="text" class="title-box" id="title-box">
+          <h4>Body</h4>
+          <textarea class="body-box" id="body-box"></textarea>
+          <br>
+          <button class="save-button">Save</button>
+        </form>
+      </section>
+      <article class="cards-container"> 
+      </article>
+    </main>
+  <!-- remove this later-here for editing purposes only -->
+  <!-- template -->
+  <article class="idea-card">
+    <h2>${titleinput}</h2>
+    <p>${bodyinput}</p>
+    <section class="idea-card-bottom">
+      <div class="voting-btns">
+        <img src="Images/downvote.svg" class="buttons" id="downvote-button">
+        <img src="Images/upvote.svg" class="buttons" id="upvote-button">
+      </div>
+      <div class="idea-quality">
+        <p>Quality:</p>
+      </div>
+      <div class="delete-container">
+        <img src="Images/delete.svg" class="buttons delete-button" id="delete-button">
+      </div>
+    </section>
+  </article>
+<!-- template -->
+</body>
+  <script type="text/javascript" src="idea.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+</html>
