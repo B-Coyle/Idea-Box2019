@@ -71,7 +71,6 @@ img {
   align-items: center;
   background-color: #edf2f2;
   padding: 15px;
-  margin-bottom: 20px;
 }
 
 .idea-form {
@@ -130,8 +129,23 @@ h4 {
 .idea-card {
   border: 1px solid gray;
   width: 600px;
-  margin: auto;
-  padding: 4px;
+  margin: 20px auto;
+  /*padding: 10px;*/
+  border: 1px solid #d4d2d8;
+}
+
+.idea-card-top {
+  margin: 10px;
+}
+
+.idea-card h2 {
+  margin-top: 5px;
+  color: #5e5c6b;
+}
+
+.idea-card p {
+  margin: 5px;
+  color: #6a686a;
 }
 
 .idea-card-bottom {
@@ -143,9 +157,22 @@ h4 {
 .idea-card-bottom div {
   display: flex;
   align-items: center;
+  padding: 2px;
+}
+
+.voting-btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .delete-button {
+  margin-right: 10px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -174,6 +201,4 @@ h4 {
   .idea-form {
     width: 90%;
   }
-
-
 }
