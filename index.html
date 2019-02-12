@@ -35,18 +35,35 @@
       <div id="idea-card-area">
       </div>
     </main>
-  <!-- remove this later-here for editing purposes only -->
-  <template id="idea-card-template">
-  <article class="idea-card">
-    <h2>${title}</h2>
-    <p>${body}</p>
+    <!-- delete later -->
+    <article class="idea-card">
+    <h2 id="idea-title">${title}</h2>
+    <p id="idea-body">${body}</p>
     <section class="idea-card-bottom">
       <div class="voting-btns">
         <img src="Images/downvote.svg" class="buttons" id="downvote-button">
         <img src="Images/upvote.svg" class="buttons" id="upvote-button">
       </div>
-      <div class="idea-quality">
-        <p>Quality:</p>
+      <div class="quality">
+        <p id="idea-quality">Quality:</p>
+      </div>
+      <div class="delete-container">
+        <img src="Images/delete.svg" class="buttons delete-button" id="delete-button">
+      </div>
+    </section>
+  </article>
+  <!-- Idea Card Template -->
+  <template id="idea-card-template">
+  <article class="idea-card">
+    <h2 id="idea-title">${title}</h2>
+    <p id="idea-body">${body}</p>
+    <section class="idea-card-bottom">
+      <div class="voting-btns">
+        <img src="Images/downvote.svg" class="buttons" id="downvote-button">
+        <img src="Images/upvote.svg" class="buttons" id="upvote-button">
+      </div>
+      <div class="quality">
+        <p id="idea-quality">Quality:</p>
       </div>
       <div class="delete-container">
         <img src="Images/delete.svg" class="buttons delete-button" id="delete-button">
