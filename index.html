@@ -4,6 +4,7 @@
   <link rel="stylesheet" type="text/css" href="normalize.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet">
   <meta name="viewport" content="width=device-width, 
     user-scalable=no, initial-scale=1.0">
   <title>IdeaBox Triples</title>
@@ -11,21 +12,21 @@
 <body>
     <header class="header"><h1>ideabox<span>triples</span></h1>
       <nav class="search-nav">
-        <input type="search" class="search-box" id="search-box">
+        <input type="search" class="search-box" id="search-box" placeholder="Search">
         <div class="search-btn-container">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search fa-lg"></i>
         </div>
       </nav>
     </header>
     <main>
       <section class="form-container">
-        <form>
+        <form class="idea-form">
           <h4>Title</h4>
           <input type="text" class="title-box" id="title-box">
           <h4>Body</h4>
           <textarea class="body-box" id="body-box"></textarea>
           <br>
-          <button class="save-button">Save</button>
+          <button class="save-button" id="save-button">Save</button>
         </form>
       </section>
       <article class="cards-container"> 
@@ -34,8 +35,8 @@
   <!-- remove this later-here for editing purposes only -->
   <!-- template -->
   <article class="idea-card">
-    <h2>${titleinput}</h2>
-    <p>${bodyinput}</p>
+    <h2>${title}</h2>
+    <p>${body}</p>
     <section class="idea-card-bottom">
       <div class="voting-btns">
         <img src="Images/downvote.svg" class="buttons" id="downvote-button">
