@@ -10,8 +10,16 @@ var saveBtn = document.querySelector('.save-btn');
 var downvoteBtn = document.querySelector('#downvote-button');
 var upvoteBtn = document.querySelector('#upvote-button');
 var quality = document.querySelectorAll('.idea-quality');
+var ideaCardTemplate = document.getElementById('idea-card-template');
+var ideaCardArea = document.getElementById('idea-card-area');
 
+
+function addCard() {
+  var clone = ideaCardTemplate.content.cloneNode(true);
+  ideaCardArea.insertBefore(clone, ideaCardArea.firstChild)
+}
 
 // window.onload
 // get cards from local storage
 // parse and append to dom
+

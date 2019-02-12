@@ -10,7 +10,8 @@
   <title>IdeaBox Triples</title>
 </head>
 <body>
-    <header class="header"><h1>ideabox<span>triples</span></h1>
+    <header class="header">
+      <h1>ideabox<span>triples</span></h1>
       <nav class="search-nav">
         <input type="search" class="search-box" id="search-box" placeholder="Search">
         <div class="search-btn-container">
@@ -31,9 +32,11 @@
       </section>
       <article class="cards-container"> 
       </article>
+      <div id="idea-card-area">
+      </div>
     </main>
   <!-- remove this later-here for editing purposes only -->
-  <!-- template -->
+  <template id="idea-card-template">
   <article class="idea-card">
     <h2>${title}</h2>
     <p>${body}</p>
@@ -50,7 +53,7 @@
       </div>
     </section>
   </article>
-<!-- template -->
+  </template>
 </body>
   <script type="text/javascript" src="idea.js"></script>
   <script type="text/javascript" src="main.js"></script>
