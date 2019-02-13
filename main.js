@@ -13,6 +13,7 @@ var upvoteBtn = document.querySelector('#upvote-button');
 var quality = document.querySelectorAll('#idea-quality');
 var ideaCardTemplate = document.getElementById('idea-card-template');
 var ideaCardArea = document.getElementById('idea-card-area');
+var retrievedIdeas = JSON.parse(localStorage.getItem('ideasArray')) || [];
 
 
 saveBtn.addEventListener ('click', function(e) {
@@ -35,9 +36,19 @@ saveBtn.addEventListener ('click', function(e) {
 // })
 
 
+///// parsed array var is now global
+///// OH MY GOD THE CARD WILL STICK BUT THE VALUES WILL NOT :|
+
+window.onload = function() {
+  retrievedIdeas.forEach(function(idea) {
+    var idea = (idea.title, idea.body, idea.quality, idea.id);
+    // addCard(idea);
+    ideaClass(idea);
+  })
+};
+
 function addCard() {
   var defaultQuality = quality.value || 'Swill';
-  console.log(defaultQuality);
   var clone = ideaCardTemplate.content.cloneNode(true);
   clone.getElementById("idea-title").innerText = title.value;
   clone.getElementById("idea-body").innerText = body.value;
@@ -58,15 +69,13 @@ function ideaClass() {
 };
 
 // function deleteCard() {
-
 // }
 
 
 // local storage is saving/persisting, still needs cards to reload
-// window.onload
-// get cards from local storage
-// parse and append to dom
 
+
+///// for iterating over quality array
 
 //counter starts at 0
 //increment counter by plus1 each time upvoteButton is clicked
