@@ -8,15 +8,18 @@ class Idea {
   saveToStorage() {
     localStorage.setItem('ideasArray', JSON.stringify(ideasArray));
   }
+  // updateContent() {
+  
+  // }
+  // updateQuality() {
 
+  // }
+  
 // for delete: splice method on index
   // deleteFromStorage() {
     // if the cardId == the cardId deleted
     // localStorage.removeItem('ideasArray') OR
     // ideasArray.splice('cardId') ?
   // }
-
-
-  
 };
 

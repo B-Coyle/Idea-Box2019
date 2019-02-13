@@ -57,9 +57,10 @@ span {
   padding: 7px;
 }
 
-img {
+.buttons {
   height: 20px;
   width: 20px;
+
 }
 
 .form-container {
@@ -127,7 +128,7 @@ h4 {
   border: 1px solid gray;
   width: 600px;
   margin: 20px auto;
-  /*padding: 10px;*/
+  padding: 20px;
   border: 1px solid #d4d2d8;
 }
 
@@ -138,6 +139,8 @@ h4 {
 .idea-card h2 {
   margin-top: 5px;
   color: #5e5c6b;
+  padding: 0 3px;
+
 }
 
 .idea-card p {
