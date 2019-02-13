@@ -15,7 +15,7 @@ var ideaCardArea = document.getElementById('idea-card-area');
 
 saveBtn.addEventListener ('click', function(e) {
   e.preventDefault();
-  addCard();
+  ideaClass();
   clearFields();
 });
 
@@ -24,16 +24,27 @@ function addCard() {
   clone.getElementById("idea-title").innerText = title.value;
   clone.getElementById("idea-body").innerText = body.value;
   ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
-}
+};
 
 function clearFields() {
   title.value = "";
   body.value = "";
-}
+};
 
+function ideaClass() {
+    var newIdea = new Idea(title.value, body.value, 'Swill', Date.now());
+    addCard(newIdea);
+    ideasArray.push(newIdea);
+    newIdea.saveToStorage(ideasArray);
+};
+
+
+
+// local storage is saving/persisting, needs cards to reload
 // window.onload
 // get cards from local storage
 // parse and append to dom
+
 
 //counter starts at 0
 //increment counter by plus1 each time upvoteButton is clicked
