@@ -36,7 +36,7 @@
       </div>
     </main>
     <!-- delete later -->
-    <article class="idea-card">
+    <article class="idea-card"  data-index=${id}>
       <section class="idea-card-top">
         <h2 id="idea-title">${title}</h2>
         <p id="idea-body">${body}</p>
@@ -56,7 +56,7 @@
     </article>
   <!-- Idea Card Template -->
   <template id="idea-card-template">
-  <article class="idea-card">
+  <article class="idea-card"  data-index=${id}>
     <h2 id="idea-title">${title}</h2>
     <p id="idea-body">${body}</p>
     <section class="idea-card-bottom">
