@@ -40,7 +40,7 @@ function ideaClass() {
 
 
 
-// local storage is saving/persisting, needs cards to reload
+// local storage is saving/persisting, still needs cards to reload
 // window.onload
 // get cards from local storage
 // parse and append to dom
