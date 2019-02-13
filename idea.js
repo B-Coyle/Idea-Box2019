@@ -6,16 +6,20 @@ class Idea {
     this.id = id;
   }
   saveToStorage() {
-    localStorage.setItem("ideasArray", JSON.stringify(ideasArray));
+    localStorage.setItem('ideasArray', JSON.stringify(ideasArray));
   }
-  // deletefromStorage() {
-    
-  // }
   // updateContent() {
-
+  
   // }
   // updateQuality() {
 
+  // }
+  
+// for delete: splice method on index
+  // deleteFromStorage() {
+    // if the cardId == the cardId deleted
+    // localStorage.removeItem('ideasArray') OR
+    // ideasArray.splice('cardId') ?
   // }
 };
 
