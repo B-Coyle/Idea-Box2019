@@ -8,6 +8,7 @@ var body = document.querySelector('#body-box');
 var saveBtn = document.getElementById('save-button');
 var deleteBtn = document.getElementById('delete-button');
 
+var deleteBtn = document.querySelector('#delete-button')
 var downvoteBtn = document.querySelector('#downvote-button');
 var upvoteBtn = document.querySelector('#upvote-button');
 var quality = document.querySelectorAll('#idea-quality');
@@ -81,11 +82,18 @@ function ideaClass() {
 //increment counter by plus1 each time upvoteButton is clicked
 //decrease counter by 1 each time downvoteButton is clicked
 //when counter is 0, quality is swill
-//when counter is 1, quality is plaasuible
+//when counter is 1, quality is plausible
 //when counter is 2, quality is genius
 //when counter is > 2, counter is 2
 //when counter is < 0, counter is 0
 
+
+// function in progress to remove card 
+ideaCardTemplate.addEventListener('click', function(event) {
+  if (event.target.className === '.delete-button') {
+      event.target.parentElement.parentElement.remove();
+  }
+})
 
 ///// NOTES FROM REFACTORING THAT MIGHT BE USEFUL
 
@@ -95,4 +103,5 @@ function ideaClass() {
 // array.from(ideaFormFields) - array.from creates a new shallow copy from an element that isn't an array
 
 // deleting card with .closest instead of bubbling up through parents manually
+
 
