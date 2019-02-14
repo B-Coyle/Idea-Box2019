@@ -23,11 +23,6 @@ saveBtn.addEventListener ('click', function(e) {
   clearFields();
 });
 
-
-// deleteBtn.addEventListener ('click', function() {
-//   deleteCard();
-// });
-
 // downvoteBtn.addEventListener ('click', function() {
 //   qualityDown();
 // })
@@ -36,31 +31,12 @@ saveBtn.addEventListener ('click', function(e) {
 //   qualityUp();
 // })
 
-
-///// parsed array var is now global
-///// OH MY GOD THE CARD WILL STICK BUT THE VALUES WILL NOT :|
-
 window.onload = function() {
   console.log(retrievedIdeas);
   retrievedIdeas.forEach(function(idea) {
     var idea = new Idea (idea.title, idea.body, idea.quality, idea.id);
-    // addCard(idea);
     ideaClass(idea);
   })
-};
-
-function addCard(newIdea) {
-  var defaultQuality = quality.value || 'Swill';
-  var clone = ideaCardTemplate.content.cloneNode(true);
-  clone.getElementById("idea-title").innerText = newIdea.title;
-  clone.getElementById("idea-body").innerText = newIdea.body;
-  clone.getElementById("idea-quality").innerText = 'Quality: ' + defaultQuality;
-  ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
-};
-
-function clearFields() {
-  titleInput.value = "";
-  bodyInput.value = "";
 };
 
 function ideaClass(idea) {
@@ -70,11 +46,43 @@ function ideaClass(idea) {
   newIdea.saveToStorage(ideasArray);
 };
 
-// function deleteCard() {
-// }
+function addCard(newIdea) {
+  var defaultQuality = quality.value || 'Swill';
+  // var cardId = ideaCardArea.getAttribute("data-id");
+  // console.log(cardId);
+  var clone = ideaCardTemplate.content.cloneNode(true);
+  clone.getElementById("idea-title").innerText = newIdea.title;
+  clone.getElementById("idea-body").innerText = newIdea.body;
+  clone.getElementById("idea-quality").innerText = 'Quality: ' + defaultQuality;
+  ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
+};
+
+// the ID is generated and pushed to localStorage in the ideaClass function
+// the addCard generates the card on the dom, but only calls for title, body, quality
+// we're unable to grab the ID associated to a card when deleted from the dom because it never exists associated with the dom cardId
 
 
-// local storage is saving/persisting, still needs cards to reload
+
+function clearFields() {
+  titleInput.value = "";
+  bodyInput.value = "";
+};
+
+ideaCardArea.addEventListener('click', function(event) {
+  deleteCard();
+});
+
+
+function deleteCard(cardId) {
+  // console.log(cardId);
+  var cardToDelete = new Idea('', '', '', event.target.closest('.idea-card').dataset.id);
+  console.log(cardToDelete);
+  if (event.target.className === 'delete-button') {
+    event.target.closest('.idea-card').remove();
+  }
+// cardToDelete.deleteFromStorage(cardId);
+};
+
 
 
 ///// for iterating over quality array
@@ -87,18 +95,6 @@ function ideaClass(idea) {
 //when counter is 2, quality is genius
 //when counter is > 2, counter is 2
 //when counter is < 0, counter is 0
-
-
-// function in progress to remove card 
-ideaCardArea.addEventListener('click', function(event) {
-  deleteCard();
-});
-
-function deleteCard(cardId) {
-  if (event.target.className === 'delete-button') {
-    event.target.closest('.idea-card').remove();
-  }
-};
 
 
 
