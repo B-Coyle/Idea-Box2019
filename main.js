@@ -3,8 +3,8 @@ var ideasArray = [];
 var searchInput = document.querySelector('#search-term');
 var searchBtn = document.querySelector('.search-btn');
 
-var title = document.querySelector('#title-box');
-var body = document.querySelector('#body-box');
+var titleInput = document.querySelector('#title-box');
+var bodyInput = document.querySelector('#body-box');
 var saveBtn = document.getElementById('save-button');
 var deleteBtn = document.getElementById('delete-button');
 
@@ -41,30 +41,30 @@ saveBtn.addEventListener ('click', function(e) {
 ///// OH MY GOD THE CARD WILL STICK BUT THE VALUES WILL NOT :|
 
 window.onload = function() {
+  console.log(retrievedIdeas);
   retrievedIdeas.forEach(function(idea) {
     var idea = new Idea (idea.title, idea.body, idea.quality, idea.id);
     // addCard(idea);
     ideaClass(idea);
-    console.log(idea);
   })
 };
 
-function addCard() {
+function addCard(newIdea) {
   var defaultQuality = quality.value || 'Swill';
   var clone = ideaCardTemplate.content.cloneNode(true);
-  clone.getElementById("idea-title").innerText = title.value;
-  clone.getElementById("idea-body").innerText = body.value;
+  clone.getElementById("idea-title").innerText = newIdea.title;
+  clone.getElementById("idea-body").innerText = newIdea.body;
   clone.getElementById("idea-quality").innerText = 'Quality: ' + defaultQuality;
   ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
 };
 
 function clearFields() {
-  title.value = "";
-  body.value = "";
+  titleInput.value = "";
+  bodyInput.value = "";
 };
 
 function ideaClass(idea) {
-  var newIdea = idea || new Idea(title.value, body.value, quality.value, Date.now());
+  var newIdea = idea || new Idea(titleInput.value, bodyInput.value, quality.value, Date.now());
   addCard(newIdea);
   ideasArray.push(newIdea);
   newIdea.saveToStorage(ideasArray);
