@@ -90,11 +90,23 @@ function ideaClass(idea) {
 
 
 // function in progress to remove card 
-ideaCardTemplate.addEventListener('click', function(event) {
-  if (event.target.className === '.delete-button') {
-      event.target.parentElement.parentElement.remove();
+ideaCardArea.addEventListener('click', function(event) {
+  deleteCard();
+});
+
+function deleteCard(cardId) {
+  if (event.target.className === 'delete-button') {
+    event.target.closest('.idea-card').remove();
   }
-})
+};
+
+
+
+// cardArea.addEventListener('click', function(event) {
+//   if (event.target.className === 'close-card') {
+//     event.target.parentNode.parentNode.parentNode.remove()
+//   }
+// });
 
 ///// NOTES FROM REFACTORING THAT MIGHT BE USEFUL
 

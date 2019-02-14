@@ -35,43 +35,24 @@
       <div id="idea-card-area">
       </div>
     </main>
-    <!-- delete later -->
+  <!-- Idea Card Template -->
+  <template id="idea-card-template">
     <article class="idea-card"  data-index=${id}>
-      <section class="idea-card-top">
-        <h2 id="idea-title">${title}</h2>
-        <p id="idea-body">${body}</p>
-      </section>
+      <h2 id="idea-title">${title}</h2>
+      <p id="idea-body">${body}</p>
       <section class="idea-card-bottom">
-       <div class="voting-btns">
-         <input type="image" src="Images/downvote.svg" class="buttons" id="downvote-button">
-         <input type="image" src="Images/upvote.svg" class="buttons" id="upvote-button">
-       </div>
+        <div class="voting-btns">
+          <input type="image" src="Images/downvote.svg" class="buttons" id="downvote-button">
+          <input type="image" src="Images/upvote.svg" class="buttons" id="upvote-button">
+        </div>
         <div class="quality">
-          <p id="idea-quality">Quality:</p>
+          <p id="idea-quality"></p>
         </div>
         <div class="delete-container">
-          <input type="image" src="Images/delete.svg" class="buttons delete-button" id="delete-button">
+          <button class="delete-button" id="delete-button"></button>
         </div>
       </section>
     </article>
-  <!-- Idea Card Template -->
-  <template id="idea-card-template">
-  <article class="idea-card"  data-index=${id}>
-    <h2 id="idea-title">${title}</h2>
-    <p id="idea-body">${body}</p>
-    <section class="idea-card-bottom">
-      <div class="voting-btns">
-        <input type="image" src="Images/downvote.svg" class="buttons" id="downvote-button">
-        <input type="image" src="Images/upvote.svg" class="buttons" id="upvote-button">
-      </div>
-      <div class="quality">
-        <p id="idea-quality"></p>
-      </div>
-      <div class="delete-container">
-        <input type="image" src="Images/delete.svg" class="buttons delete-button" id="delete-button">
-      </div>
-    </section>
-  </article>
   </template>
 </body>
   <script type="text/javascript" src="idea.js"></script>
