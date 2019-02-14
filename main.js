@@ -42,9 +42,10 @@ saveBtn.addEventListener ('click', function(e) {
 
 window.onload = function() {
   retrievedIdeas.forEach(function(idea) {
-    var idea = (idea.title, idea.body, idea.quality, idea.id);
+    var idea = new Idea (idea.title, idea.body, idea.quality, idea.id);
     // addCard(idea);
     ideaClass(idea);
+    console.log(idea);
   })
 };
 
@@ -62,8 +63,8 @@ function clearFields() {
   body.value = "";
 };
 
-function ideaClass() {
-  var newIdea = new Idea(title.value, body.value, quality.value, Date.now());
+function ideaClass(idea) {
+  var newIdea = idea || new Idea(title.value, body.value, quality.value, Date.now());
   addCard(newIdea);
   ideasArray.push(newIdea);
   newIdea.saveToStorage(ideasArray);
