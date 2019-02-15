@@ -1,4 +1,5 @@
-var ideasArray = [];
+
+var ideasArray = JSON.parse(localStorage.getItem('ideasArray')) || [];
 
 var searchInput = document.querySelector('#search-term');
 var searchBtn = document.querySelector('.search-btn');
@@ -14,7 +15,6 @@ var upvoteBtn = document.querySelector('#upvote-button');
 var quality = document.querySelectorAll('#idea-quality');
 var ideaCardTemplate = document.getElementById('idea-card-template');
 var ideaCardArea = document.getElementById('idea-card-area');
-var retrievedIdeas = JSON.parse(localStorage.getItem('ideasArray')) || [];
 
 
 saveBtn.addEventListener ('click', function(e) {
@@ -31,31 +31,35 @@ saveBtn.addEventListener ('click', function(e) {
 //   qualityUp();
 // })
 
-window.onload = function() {
-  console.log(retrievedIdeas);
-  retrievedIdeas.forEach(function(idea) {
-    var idea = new Idea (idea.title, idea.body, idea.quality, idea.id);
-    ideaClass(idea);
-  })
-};
+// window.onload = 
+onload(ideasArray);
+
+function onload(oldIdeas) {
+  ideasArray = [];
+  oldIdeas.forEach(function(idea) {
+    var newIdea = new Idea (idea.title, idea.body, idea.id);
+    ideasArray.push(newIdea);
+    addCard(newIdea);
+  });
+}
 
 function ideaClass(idea) {
-  var newIdea = idea || new Idea(titleInput.value, bodyInput.value, quality.value, Date.now());
+  var newIdea = idea || new Idea(titleInput.value, bodyInput.value, Date.now());
   addCard(newIdea);
   ideasArray.push(newIdea);
   newIdea.saveToStorage(ideasArray);
-};
+}
 
 function addCard(newIdea) {
-  var defaultQuality = quality.value || 'Swill';
   // var cardId = ideaCardArea.getAttribute("data-id");
   // console.log(cardId);
   var clone = ideaCardTemplate.content.cloneNode(true);
+  clone.getElementById("idea-card-js").setAttribute('data-id', newIdea.id);
   clone.getElementById("idea-title").innerText = newIdea.title;
   clone.getElementById("idea-body").innerText = newIdea.body;
-  clone.getElementById("idea-quality").innerText = 'Quality: ' + defaultQuality;
+  clone.getElementById("idea-quality").innerText = 'Quality: ' + newIdea.quality;
   ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
-};
+}
 
 // the ID is generated and pushed to localStorage in the ideaClass function
 // the addCard generates the card on the dom, but only calls for title, body, quality
@@ -73,15 +77,20 @@ ideaCardArea.addEventListener('click', function(event) {
 });
 
 
-function deleteCard(cardId) {
+function deleteCard() {
   // console.log(cardId);
-  var cardToDelete = new Idea('', '', '', event.target.closest('.idea-card').dataset.id);
-  console.log(cardToDelete);
+  // var cardToDelete = new Idea('', '', '', event.target.closest('.idea-card').dataset.id);
+  // console.log(cardToDelete);
   if (event.target.className === 'delete-button') {
     event.target.closest('.idea-card').remove();
+    var id = Number(event.target.closest('.idea-card').getAttribute('data-id'));
+    var ideaToDelete = ideasArray.find(function(idea) {
+      return idea.id === id;
+    });
+    ideaToDelete.deleteFromStorage();
   }
 // cardToDelete.deleteFromStorage(cardId);
-};
+}
 
 
 
@@ -112,5 +121,3 @@ function deleteCard(cardId) {
 // array.from(ideaFormFields) - array.from creates a new shallow copy from an element that isn't an array
 
 // deleting card with .closest instead of bubbling up through parents manually
-
-
