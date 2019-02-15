@@ -94,6 +94,15 @@ function deleteCard() {
 
 
 
+// to edit content in the ideacard
+var ideaTitle = document.getElementById('idea-title');
+var ideaBody = document.getElementById('idea-body');
+
+ideaTitle.addEventlistener('click', function() {
+  localStorage.setItem('ideaTitle', this.innerHTML);
+  localStorage.setItem('ideaBody', this.innerHTML);
+})
+
 ///// for iterating over quality array
 
 //counter starts at 0
@@ -104,14 +113,6 @@ function deleteCard() {
 //when counter is 2, quality is genius
 //when counter is > 2, counter is 2
 //when counter is < 0, counter is 0
-
-
-
-// cardArea.addEventListener('click', function(event) {
-//   if (event.target.className === 'close-card') {
-//     event.target.parentNode.parentNode.parentNode.remove()
-//   }
-// });
 
 ///// NOTES FROM REFACTORING THAT MIGHT BE USEFUL
 

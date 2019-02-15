@@ -8,15 +8,27 @@ class Idea {
   saveToStorage() {
     localStorage.setItem('ideasArray', JSON.stringify(ideasArray));
   }
+
   deleteFromStorage() {
     var index = ideasArray.indexOf(this);
     ideasArray.splice(index, 1);
     this.saveToStorage();
   }
 
+  updateContent() {
+    var index = ideasArray.indexOf(this);
+    this.saveToStorage();
+  }
 
 
+  // updateQuality() {
 
+  // }
+  
+}
+
+
+// Old Code-to delete after review
   // deleteFromStorage(cardId) {
   //   ideasArray.forEach(function(card, idx) {
   //     console.log(cardId);
@@ -26,14 +38,3 @@ class Idea {
   //   localStorage.setItem('ideasArray', JSON.stringify(ideasArray));
   //   })
   // };
-
-
-  // updateContent() {
-  
-  // }
-  // updateQuality() {
-
-  // }
-  
-}
-
