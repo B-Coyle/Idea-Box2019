@@ -124,6 +124,10 @@ h4 {
   background-color: #52505d;
 }
 
+:focus {
+  outline: none;
+}
+
 .idea-card {
   border: 1px solid gray;
   width: 600px;
@@ -140,7 +144,6 @@ h4 {
   margin-top: 5px;
   color: #5e5c6b;
   padding: 0 3px;
-
 }
 
 .idea-card p {
