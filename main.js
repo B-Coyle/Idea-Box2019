@@ -16,7 +16,6 @@ var quality = document.querySelectorAll('#idea-quality');
 var ideaCardTemplate = document.getElementById('idea-card-template');
 var ideaCardArea = document.getElementById('idea-card-area');
 
-
 saveBtn.addEventListener ('click', function(e) {
   e.preventDefault();
   ideaClass();
@@ -31,7 +30,6 @@ saveBtn.addEventListener ('click', function(e) {
 //   qualityUp();
 // })
 
-// window.onload = 
 onload(ideasArray);
 
 function onload(oldIdeas) {
@@ -51,8 +49,6 @@ function ideaClass(idea) {
 }
 
 function addCard(newIdea) {
-  // var cardId = ideaCardArea.getAttribute("data-id");
-  // console.log(cardId);
   var clone = ideaCardTemplate.content.cloneNode(true);
   clone.getElementById("idea-card-js").setAttribute('data-id', newIdea.id);
   clone.getElementById("idea-title").innerText = newIdea.title;
@@ -60,12 +56,6 @@ function addCard(newIdea) {
   clone.getElementById("idea-quality").innerText = 'Quality: ' + newIdea.quality;
   ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
 }
-
-// the ID is generated and pushed to localStorage in the ideaClass function
-// the addCard generates the card on the dom, but only calls for title, body, quality
-// we're unable to grab the ID associated to a card when deleted from the dom because it never exists associated with the dom cardId
-
-
 
 function clearFields() {
   titleInput.value = "";
@@ -76,11 +66,7 @@ ideaCardArea.addEventListener('click', function(event) {
   deleteCard();
 });
 
-
 function deleteCard() {
-  // console.log(cardId);
-  // var cardToDelete = new Idea('', '', '', event.target.closest('.idea-card').dataset.id);
-  // console.log(cardToDelete);
   if (event.target.className === 'delete-button') {
     event.target.closest('.idea-card').remove();
     var id = Number(event.target.closest('.idea-card').getAttribute('data-id'));
@@ -89,19 +75,19 @@ function deleteCard() {
     });
     ideaToDelete.deleteFromStorage();
   }
-// cardToDelete.deleteFromStorage(cardId);
 }
-
-
 
 // to edit content in the ideacard
 var ideaTitle = document.getElementById('idea-title');
 var ideaBody = document.getElementById('idea-body');
 
-ideaTitle.addEventlistener('click', function() {
+ideaTitle.addEventListener('click', function() {
   localStorage.setItem('ideaTitle', this.innerHTML);
   localStorage.setItem('ideaBody', this.innerHTML);
 })
+
+
+
 
 ///// for iterating over quality array
 
@@ -113,6 +99,8 @@ ideaTitle.addEventlistener('click', function() {
 //when counter is 2, quality is genius
 //when counter is > 2, counter is 2
 //when counter is < 0, counter is 0
+
+
 
 ///// NOTES FROM REFACTORING THAT MIGHT BE USEFUL
 
