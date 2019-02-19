@@ -22,14 +22,6 @@ saveBtn.addEventListener ('click', function(e) {
   clearFields();
 });
 
-// downvoteBtn.addEventListener ('click', function() {
-//   qualityDown();
-// })
-
-// upvoteBtn.addEventlistener ('click', function() {
-//   qualityUp();
-// })
-
 onload(ideasArray);
 
 function onload(oldIdeas) {
@@ -39,14 +31,14 @@ function onload(oldIdeas) {
     ideasArray.push(newIdea);
     addCard(newIdea);
   });
-}
+};
 
 function ideaClass(idea) {
   var newIdea = idea || new Idea(titleInput.value, bodyInput.value, Date.now());
   addCard(newIdea);
   ideasArray.push(newIdea);
   newIdea.saveToStorage(ideasArray);
-}
+};
 
 function addCard(newIdea) {
   var clone = ideaCardTemplate.content.cloneNode(true);
@@ -55,7 +47,7 @@ function addCard(newIdea) {
   clone.getElementById("idea-body").innerText = newIdea.body;
   clone.getElementById("idea-quality").innerText = 'Quality: ' + newIdea.quality;
   ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
-}
+};
 
 function clearFields() {
   titleInput.value = "";
@@ -64,6 +56,7 @@ function clearFields() {
 
 ideaCardArea.addEventListener('click', function(event) {
   deleteCard();
+  changeQualityCounter();
 });
 
 function deleteCard() {
@@ -88,17 +81,35 @@ ideaTitle.addEventListener('click', function() {
 
 
 
+var ideaQualityCounter = 0;
+function changeQualityCounter() {
+  if (event.target.id === 'upvote-button') {
+    ideaQualityCounter++;
+    if (ideaQualityCounter > 2) {
+      ideaQualityCounter = 2;
+    }
+    console.log(ideaQualityCounter);
+  } if (event.target.id === 'downvote-button') {
+    ideaQualityCounter--;
+    if (ideaQualityCounter < 0) {
+      ideaQualityCounter = 0;
+    }
+    console.log(ideaQualityCounter);
+  }
+  changeIdeaQuality();
+  console.log(quality)
+}
 
-///// for iterating over quality array
+function changeIdeaQuality() {
+  if (ideaQualityCounter === 0) {
+    quality.value = 'Swill';
+  } else if (ideaQualityCounter === 1) {
+    quality.value = 'Plausible';
+  } else if (ideaQualityCounter === 2) {
+    quality.value = 'Genius'
+}
+}
 
-//counter starts at 0
-//increment counter by plus1 each time upvoteButton is clicked
-//decrease counter by 1 each time downvoteButton is clicked
-//when counter is 0, quality is swill
-//when counter is 1, quality is plausible
-//when counter is 2, quality is genius
-//when counter is > 2, counter is 2
-//when counter is < 0, counter is 0
 
 
 
