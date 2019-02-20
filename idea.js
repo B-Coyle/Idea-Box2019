@@ -23,17 +23,4 @@ class Idea {
   updateQuality(quality) {
     this.quality = quality;
   }
-  
 }
-
-
-// Old Code-to delete after review
-  // deleteFromStorage(cardId) {
-  //   ideasArray.forEach(function(card, idx) {
-  //     console.log(cardId);
-  //     if (this.id === cardId) {
-  //       ideasArray.splice(idx, 1);
-  //     }
-  //   localStorage.setItem('ideasArray', JSON.stringify(ideasArray));
-  //   })
-  // };

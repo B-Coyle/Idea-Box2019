@@ -60,7 +60,6 @@ span {
 .buttons {
   height: 20px;
   width: 20px;
-
 }
 
 .form-container {
@@ -68,7 +67,6 @@ span {
   justify-content: center;
   align-items: center;
   background-color: #edf2f2;
-  padding: 15px;
 }
 
 .idea-form {
@@ -124,17 +122,48 @@ h4 {
   background-color: #52505d;
 }
 
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.filter {
+  color: #fff;
+  font-weight: 800;
+  background-color: #5e5c6b;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 35px;
+  width: 30%;
+  cursor: pointer;
+}
+
+.filter:hover {
+  background-color: #52505d;
+  cursor: pointer;
+}
+
 :focus {
   outline: none;
 }
 
 #idea-card-area span {
   color: #6a686a;
+  display: flex;
+  justify-content: center;
 }
 
 .idea-card {
   border: 1px solid gray;
-  width: 600px;
+  width: 50%;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #d4d2d8;
@@ -158,7 +187,7 @@ h4 {
 .idea-card-bottom {
   border-top: 1px solid gray;
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-columns: 1fr 6.5fr 1fr;
 }
 
 .idea-card-bottom div {
@@ -209,6 +238,22 @@ h4 {
   }
 
   .idea-form {
+    width: 90%;
+  }
+
+  .filter-buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .filter {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .idea-card {
     width: 90%;
   }
 }
