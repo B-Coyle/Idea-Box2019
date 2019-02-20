@@ -96,9 +96,9 @@ function findIdea(event) {
 function changeQuality(event) {
   if (event.target.id === 'upvote-button') {
     upvoteIdea(event);
+  }
   if (event.target.id === 'downvote-button') {
-    downvoteIdea(event)
-    }
+    downvoteIdea(event);
   }
 }
 
@@ -113,6 +113,21 @@ function upvoteIdea(event) {
   } else if (ideaToUpdate.quality === 'Plausible') {
     qualityText.innerHTML = 'Genius';
     ideaToUpdate.updateQuality('Genius');
+  }
+  ideaToUpdate.saveToStorage();
+}
+
+function downvoteIdea(event) {
+  var ideaToUpdate = findIdea(event);
+  console.log(ideaToUpdate);
+  var qualityText = event.target.closest('.idea-card-bottom').querySelector('#quality-text');
+  console.log(qualityText);
+  if (ideaToUpdate.quality === 'Genius'){
+    qualityText.innerHTML = 'Plausible';
+    ideaToUpdate.updateQuality('Plausible');
+  } else if (ideaToUpdate.quality === 'Plausible') {
+    qualityText.innerHTML = 'Swill';
+    ideaToUpdate.updateQuality('Swill');
   }
   ideaToUpdate.saveToStorage();
 }
