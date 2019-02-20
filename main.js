@@ -16,6 +16,8 @@ var quality = document.querySelectorAll('#idea-quality');
 var ideaCardTemplate = document.getElementById('idea-card-template');
 var ideaCardArea = document.getElementById('idea-card-area');
 
+ideaCardArea.addEventListener('keyup', updateText);
+
 saveBtn.addEventListener ('click', function(e) {
   e.preventDefault();
   ideaClass();
@@ -31,14 +33,14 @@ onload(ideasArray);
 function onload(oldIdeas) {
   ideasArray = [];
   oldIdeas.forEach(function(idea) {
-    var newIdea = new Idea (idea.title, idea.body, idea.id);
+    var newIdea = new Idea (idea.title, idea.body, idea.quality, idea.id);
     ideasArray.push(newIdea);
     addCard(newIdea);
   });
 };
 
 function ideaClass(idea) {
-  var newIdea = idea || new Idea(titleInput.value, bodyInput.value, Date.now());
+  var newIdea = idea || new Idea(titleInput.value, bodyInput.value, 'Swill', Date.now());
   addCard(newIdea);
   ideasArray.push(newIdea);
   newIdea.saveToStorage(ideasArray);
@@ -49,7 +51,8 @@ function addCard(newIdea) {
   clone.getElementById("idea-card-js").setAttribute('data-id', newIdea.id);
   clone.getElementById("idea-title").innerText = newIdea.title;
   clone.getElementById("idea-body").innerText = newIdea.body;
-  clone.getElementById("idea-quality").innerText = 'Quality: ' + newIdea.quality;
+  console.log(clone.getElementById("quality-text"));
+  clone.getElementById("quality-text").innerText = newIdea.quality;
   ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
 };
 
@@ -60,58 +63,88 @@ function clearFields() {
 
 ideaCardArea.addEventListener('click', function(event) {
   deleteCard();
-  changeQualityCounter();
+  changeQuality(event);
+  // changeQualityCounter();
 });
 
 function deleteCard() {
   if (event.target.className === 'delete-button') {
     event.target.closest('.idea-card').remove();
-    var id = Number(event.target.closest('.idea-card').getAttribute('data-id'));
-    var ideaToDelete = ideasArray.find(function(idea) {
-      return idea.id === id;
-    });
+    var ideaToDelete = findIdea(event);
     ideaToDelete.deleteFromStorage();
   }
 }
 
-// to edit content in the ideacard
-var ideaTitle = document.getElementById('idea-title');
-var ideaBody = document.getElementById('idea-body');
-
-ideaTitle.addEventListener('click', function() {
-  localStorage.setItem('ideaTitle', this.innerHTML);
-  localStorage.setItem('ideaBody', this.innerHTML);
-})
-
-
-var ideaQualityCounter = 0;
-function changeQualityCounter() {
-  if (event.target.id === 'upvote-button') {
-    ideaQualityCounter++;
-    if (ideaQualityCounter > 2) {
-      ideaQualityCounter = 2;
-    }
-    console.log(ideaQualityCounter);
-  } if (event.target.id === 'downvote-button') {
-    ideaQualityCounter--;
-    if (ideaQualityCounter < 0) {
-      ideaQualityCounter = 0;
-    }
-    console.log(ideaQualityCounter);
+function updateText(e) {
+  var ideaToUpdate = findIdea(event);
+  if (e.target.id === 'idea-title') {
+    ideaToUpdate.title = e.target.innerHTML;
   }
-  changeIdeaQuality();
-  console.log(quality)
+  if (e.target.id === 'idea-body') {
+    ideaToUpdate.body = e.target.innerHTML;
+  }
+  ideaToUpdate.saveToStorage();
 }
 
-function changeIdeaQuality() {
-  if (ideaQualityCounter === 0) {
-    quality.value = 'Swill';
-  } else if (ideaQualityCounter === 1) {
-    quality.value = 'Plausible';
-  } else if (ideaQualityCounter === 2) {
-    quality.value = 'Genius'
+function findIdea(event) {
+  var id = Number(event.target.closest('.idea-card').getAttribute('data-id'));
+  return ideasArray.find(function(idea) {
+    return idea.id === id;
+  });
 }
-};
+
+function changeQuality(event) {
+  if (event.target.id === 'upvote-button') {
+    upvoteIdea(event);
+  if (event.target.id === 'downvote-button') {
+    downvoteIdea(event)
+    }
+  }
+}
+
+function upvoteIdea(event) {
+  var ideaToUpdate = findIdea(event);
+  console.log(ideaToUpdate);
+  var qualityText = event.target.closest('.idea-card-bottom').querySelector('#quality-text');
+  console.log(qualityText);
+  if (ideaToUpdate.quality === 'Swill'){
+    qualityText.innerHTML = 'Plausible';
+    ideaToUpdate.updateQuality('Plausible');
+  } else if (ideaToUpdate.quality === 'Plausible') {
+    qualityText.innerHTML = 'Genius';
+    ideaToUpdate.updateQuality('Genius');
+  }
+  ideaToUpdate.saveToStorage();
+}
+
+// var ideaQualityCounter = 0;
+// function changeQualityCounter() {
+//   if (event.target.id === 'upvote-button') {
+//     ideaQualityCounter++;
+//     if (ideaQualityCounter > 2) {
+//       ideaQualityCounter = 2;
+//     }
+//     console.log(ideaQualityCounter);
+//   } if (event.target.id === 'downvote-button') {
+//     ideaQualityCounter--;
+//     if (ideaQualityCounter < 0) {
+//       ideaQualityCounter = 0;
+//     }
+//     console.log(ideaQualityCounter);
+//   }
+//   changeIdeaQuality();
+//   console.log(quality)
+// }
+
+// function changeIdeaQuality() {
+//   if (ideaQualityCounter === 0) {
+//     quality.value = 'Swill';
+//   } else if (ideaQualityCounter === 1) {
+//     quality.value = 'Plausible';
+//   } else if (ideaQualityCounter === 2) {
+//     quality.value = 'Genius'
+// }
+// };
 
 function searchIdeaCard() {
     ideaCardArea.innerHTML = '';
