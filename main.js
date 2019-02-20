@@ -123,12 +123,18 @@ function upvoteIdea(event) {
   console.log(ideaToUpdate);
   var qualityText = event.target.closest('.idea-card-bottom').querySelector('#quality-text');
   console.log(qualityText);
-  if (ideaToUpdate.quality === 'Swill'){
+   if (ideaToUpdate.quality === 'Riddikulus') {
+    qualityText.innerHTML = 'Swill';
+    ideaToUpdate.updateQuality('Swill');
+  } else if (ideaToUpdate.quality === 'Swill'){
     qualityText.innerHTML = 'Plausible';
     ideaToUpdate.updateQuality('Plausible');
   } else if (ideaToUpdate.quality === 'Plausible') {
     qualityText.innerHTML = 'Genius';
     ideaToUpdate.updateQuality('Genius');
+  } else if (ideaToUpdate.quality === 'Genius') {
+    qualityText.innerHTML = 'Dumbledore';
+    ideaToUpdate.updateQuality('Dumbledore');
   }
   ideaToUpdate.saveToStorage();
 }
@@ -138,12 +144,18 @@ function downvoteIdea(event) {
   console.log(ideaToUpdate);
   var qualityText = event.target.closest('.idea-card-bottom').querySelector('#quality-text');
   console.log(qualityText);
-  if (ideaToUpdate.quality === 'Genius'){
+   if (ideaToUpdate.quality === 'Dumbledore') {
+    qualityText.innerHTML = 'Genius';
+    ideaToUpdate.updateQuality('Genius');
+  } else if (ideaToUpdate.quality === 'Genius'){
     qualityText.innerHTML = 'Plausible';
     ideaToUpdate.updateQuality('Plausible');
   } else if (ideaToUpdate.quality === 'Plausible') {
     qualityText.innerHTML = 'Swill';
     ideaToUpdate.updateQuality('Swill');
+  } else if (ideaToUpdate.quality === 'Swill') {
+    qualityText.innerHTML = 'Riddikulus';
+    ideaToUpdate.updateQuality('Riddikulus');
   }
   ideaToUpdate.saveToStorage();
 }
