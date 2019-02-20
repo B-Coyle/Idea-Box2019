@@ -128,6 +128,10 @@ h4 {
   outline: none;
 }
 
+#idea-card-area span {
+  color: #6a686a;
+}
+
 .idea-card {
   border: 1px solid gray;
   width: 600px;

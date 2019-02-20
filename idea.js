@@ -20,10 +20,9 @@ class Idea {
     this.saveToStorage();
   }
 
-
-  // updateQuality() {
-
-  // }
+  updateQuality(quality) {
+    this.quality = quality;
+  }
   
 }
 
