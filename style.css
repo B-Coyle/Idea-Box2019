@@ -214,6 +214,23 @@ h4 {
   background-image: url(Images/delete.svg);
 }
 
+show-btn {
+  color: #fff;
+  font-weight: 800;
+  background-color: #5e5c6b;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 35px;
+  width: 30%;
+  cursor: pointer;
+}
+
+#show-more-btn,
+#show-less-btn {
+  display: none;
+}
+
 @media only screen and (max-width: 800px) {
   
   header {

@@ -24,3 +24,5 @@ class Idea {
     this.quality = quality;
   }
 }
+
+
