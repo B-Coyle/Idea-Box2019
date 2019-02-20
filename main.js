@@ -11,12 +11,15 @@ var saveBtn = document.getElementById('save-button');
 var downvoteBtn = document.querySelector('#downvote-button');
 var upvoteBtn = document.querySelector('#upvote-button');
 var quality = document.querySelectorAll('#idea-quality');
+var qualityValue = document.getElementById('quality-text');
 var ideaCardTemplate = document.getElementById('idea-card-template');
 var ideaCardArea = document.getElementById('idea-card-area');
 
+var dumbledoreBtn = document.getElementById('dumbledore-filter');
 var geniusBtn = document.getElementById('genius-filter');
 var plausibleBtn = document.getElementById('plausible-filter');
 var swillBtn = document.getElementById('swill-filter');
+var riddikulusBtn = document.getElementById('riddikulus-filter');
 
 saveBtn.addEventListener ('click', function(e) {
   e.preventDefault();
@@ -35,19 +38,24 @@ ideaCardArea.addEventListener('click', function(event) {
   changeQuality(event);
 });
 
-geniusBtn.addEventListener('click', function(e) {
-  e.preventDefault();
+dumbledoreBtn.addEventListener('click', function() {
+  filterQuality('Dumbledore');
+});
+
+geniusBtn.addEventListener('click', function() {
   filterQuality('Genius');
 });
 
-plausibleBtn.addEventListener('click', function(e) {
-  e.preventDefault();
+plausibleBtn.addEventListener('click', function() {
   filterQuality('Plausible');
 });
 
-swillBtn.addEventListener('click', function(e) {
-  e.preventDefault();
+swillBtn.addEventListener('click', function() {
   filterQuality('Swill');
+});
+
+riddikulusBtn.addEventListener('click', function() {
+  filterQuality('Riddikulus');
 });
 
 onload(ideasArray);
@@ -73,7 +81,7 @@ function addCard(newIdea) {
   clone.getElementById("idea-card-js").setAttribute('data-id', newIdea.id);
   clone.getElementById("idea-title").innerText = newIdea.title;
   clone.getElementById("idea-body").innerText = newIdea.body;
-  console.log(clone.getElementById("quality-text"));
+  // console.log(clone.getElementById("quality-text"));
   clone.getElementById("quality-text").innerText = newIdea.quality;
   ideaCardArea.insertBefore(clone, ideaCardArea.firstChild);
 };
@@ -174,7 +182,7 @@ function clearSearch() {
     searchInput.value = ''
 };
 
-function filterQuality() {
+function filterQuality(quality) {
     ideaCardArea.innerHTML = '';
     var filteredQualities = ideasArray.filter(function(idea) {
       return idea.quality === quality;
