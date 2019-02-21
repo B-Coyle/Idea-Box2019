@@ -214,6 +214,10 @@ h4 {
   background-image: url(Images/delete.svg);
 }
 
+.character-counter {
+  color:#6a686a;
+}
+
 @media only screen and (max-width: 800px) {
   
   header {
@@ -257,3 +261,4 @@ h4 {
     width: 90%;
   }
 }
+

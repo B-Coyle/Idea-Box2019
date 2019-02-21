@@ -21,6 +21,7 @@ var plausibleBtn = document.getElementById('plausible-filter');
 var swillBtn = document.getElementById('swill-filter');
 var riddikulusBtn = document.getElementById('riddikulus-filter');
 
+
 saveBtn.addEventListener ('click', function(e) {
   e.preventDefault();
   ideaClass();
@@ -66,6 +67,7 @@ function onload(oldIdeas) {
     var newIdea = new Idea (idea.title, idea.body, idea.quality, idea.id);
     ideasArray.push(newIdea);
     addCard(newIdea);
+    charCountUpdate();
   });
 };
 
@@ -192,6 +194,11 @@ function filterQuality(quality) {
     })
 };
 
+function charCountUpdate(str) {
+  var ideaLength = str.length;
+  console.log(str.length);
+  document.getElementById("charCounter").innerHTML = ideaLength;
+}
 
 ///// NOTES FROM REFACTORING THAT MIGHT BE USEFUL
 
