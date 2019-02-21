@@ -23,4 +23,4 @@
 
 
 <p>Our recreation</p>
-[![Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html.png](https://i.postimg.cc/1thkjkvV/Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html.png)](https://postimg.cc/qtwDt5Vp)
+[Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html.png](https://i.postimg.cc/1thkjkvV/Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html.png)](https://postimg.cc/qtwDt5Vp)
