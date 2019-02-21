@@ -24,7 +24,9 @@
 
 [![frontend-turing-io-assets-images-projects-ideabox-ideabox-triple.png](https://i.postimg.cc/cJDfX30v/frontend-turing-io-assets-images-projects-ideabox-ideabox-triple.png)](https://postimg.cc/JykyhGy8)
 
-[![Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html-1.png](https://i.postimg.cc/mgj9g9cm/Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html-1.png)](https://postimg.cc/G4BtMHxD)
-
 <p>Our recreation</p>
+
+
 [![Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html.png](https://i.postimg.cc/1thkjkvV/Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html.png)](https://postimg.cc/qtwDt5Vp)
+
+[![Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html-1.png](https://i.postimg.cc/mgj9g9cm/Users-bridgettcoyle-Idea-Box2019-Idea-Box2019-index-html-1.png)](https://postimg.cc/G4BtMHxD)
