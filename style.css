@@ -216,6 +216,23 @@ h4 {
 
 .character-counter {
   color:#6a686a;
+}  
+
+show-btn {
+  color: #fff;
+  font-weight: 800;
+  background-color: #5e5c6b;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 35px;
+  width: 30%;
+  cursor: pointer;
+}
+
+#show-more-btn,
+#show-less-btn {
+  display: none;
 }
 
 @media only screen and (max-width: 800px) {
@@ -232,31 +249,25 @@ h4 {
     margin: 10px auto;
     font-size: 2rem;
   }
-
   .search-btn-container {
     margin-right: 0;
   }
-
   .search-box {
     width: 230px;
   }
-
   .idea-form {
     width: 90%;
   }
-
   .filter-buttons {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 90%;
   }
-
   .filter {
     justify-content: center;
     width: 100%;
   }
-
   .idea-card {
     width: 90%;
   }
