@@ -67,7 +67,6 @@ function onload(oldIdeas) {
     var newIdea = new Idea (idea.title, idea.body, idea.quality, idea.id);
     ideasArray.push(newIdea);
     addCard(newIdea);
-    charCountUpdate();
   });
 };
 
@@ -196,8 +195,12 @@ function filterQuality(quality) {
 
 function charCountUpdate(str) {
   var ideaLength = str.length;
-  console.log(str.length);
   document.getElementById("charCounter").innerHTML = ideaLength;
+  if (ideaLength > 0 && ideaLength < 120) {
+    saveBtn.disabled = false;
+  } else {
+    saveBtn.disabled = true;
+  }
 }
 
 // Psuedo code for show more/show less functionality
