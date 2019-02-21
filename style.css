@@ -214,6 +214,10 @@ h4 {
   background-image: url(Images/delete.svg);
 }
 
+.character-counter {
+  color:#6a686a;
+}  
+
 show-btn {
   color: #fff;
   font-weight: 800;
@@ -245,32 +249,27 @@ show-btn {
     margin: 10px auto;
     font-size: 2rem;
   }
-
   .search-btn-container {
     margin-right: 0;
   }
-
   .search-box {
     width: 230px;
   }
-
   .idea-form {
     width: 90%;
   }
-
   .filter-buttons {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 90%;
   }
-
   .filter {
     justify-content: center;
     width: 100%;
   }
-
   .idea-card {
     width: 90%;
   }
 }
+
