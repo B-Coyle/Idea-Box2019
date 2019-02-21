@@ -192,34 +192,22 @@ function filterQuality(quality) {
     })
 };
 
+// function showRecentButtons() {
+//   var showMore = document.getElementById('#show-more-btn');
+//   var showLess = document.getElementById('#show-less-btn');
+//   if (ideaCardTemplate.children.length > 10) {
+//     // showMore.style.display = 'block';
+//     // showLess.style.display = 'none';
+//   }
+// }
 
-// Psuedo code for show more/show less functionality
-function showCardHistory() {
-  var showMore = document.getElementById('#show-more-btn');
-  var showLess = document.getElementById('#show-less-btn');
-  if (ideaCardTemplate.children.length >= 10) {
-    showMore.style.display = 'block';
-    showLess.style.display = 'none';
-  }
-}
-
-// create ideacounter, put that in at function cardHistory instead of 10 (maybe set limit to 100)
-// add click event to show more and show less buttons 
-// one target event for whole section (based on click on button)
-// default display array up to [9]
-// if array > [9] display 'show more...' button
-// if array > [9] hides less recent cards 
-// should cycle through as more cards are creating display just the first 10
-// once show more... button is clicked displays all ideas 
-// once button is clicked changed from show more... to show less...
-// 
-
-
-///// NOTES FROM REFACTORING THAT MIGHT BE USEFUL
-
-// array.from(document.querySelectorAll) to use array prototype methods
-// form fields querySelectorAll for "does have all inputs"
-// querying multiple values off the dom creates a node.list not an array
-// array.from(ideaFormFields) - array.from creates a new shallow copy from an element that isn't an array
-
-
+// function updateShownArray() {
+//   var shownArray = Array.from(document.querySelectorAll('.js-idea-card'));
+//   shownArray.forEach(function(card, index) {
+//     if(index < numCounter) {
+//       card.style.display = 'block';
+//     } else {
+//       card.style.display = 'none';
+//     }
+//   });
+// };
